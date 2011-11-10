@@ -26,20 +26,22 @@ Usage
 
 Just call it with an e-mail address of a domain that provides the Webfinger protocol:
 
-    #!ruby
-    require 'em-redfinger'
-     
-    EM::Redfinger.finger('youraccount@joindiaspora.com') do |finger|
-      # ...
-    end
+~~~~~ ruby
+require 'em-redfinger'
+
+EM::Redfinger.finger('youraccount@joindiaspora.com') do |finger|
+  # ...
+end
+~~~~~
     
 From there, you have access to the links provided in the response as
 well as some shortcuts for common uses:
 
-    #!ruby
-    Redfinger.finger('youraccount@joindiaspora.com') do |finger|
-      finger.hcard.first.to_s # => "https://joindiaspora.com/hcard/users/you"
-    end
+~~~~~ ruby
+Redfinger.finger('youraccount@joindiaspora.com') do |finger|
+  finger.hcard.first.to_s # => "https://joindiaspora.com/hcard/users/you"
+end
+~~~~~
     
 Links are simple hash based objects that store the 'rel' URI (such as
 that for hCard, OpenID, etc.), the 'href' (the actual destination URI),
@@ -49,16 +51,17 @@ a link to get the destination URI.
 So how can you use Webfinger to your advantage? Let's take the example
 of hCard. If you install the `mofo` library you can do this:
 
-    #!ruby
-    require 'mofo'
-    require 'em-redfinger'
-    
-    EM::Redfinger.finger('example@joindiaspora.com') do |finger|
-      hcard_uri = finger.hcard.first.to_s
-      hcard = hCard.find(hcard_uri)
-      hcard.fn    # => "Example Guy"
-      hcard.title # => "Title guy gave himself on Google profile"
-    end
+~~~~~ ruby
+require 'mofo'
+require 'em-redfinger'
+
+EM::Redfinger.finger('example@joindiaspora.com') do |finger|
+  hcard_uri = finger.hcard.first.to_s
+  hcard = hCard.find(hcard_uri)
+  hcard.fn    # => "Example Guy"
+  hcard.title # => "Title guy gave himself on Google profile"
+end
+~~~~~
     
 Note that the Webfinger protocol is still in its alpha/infancy and there
 will likely be many changes as time progresses.  This library will do
