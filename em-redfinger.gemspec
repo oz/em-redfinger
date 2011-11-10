@@ -4,70 +4,60 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{em-redfinger}
+  s.name = "em-redfinger"
   s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors     = ["Michael Bleigh", "Arnaud Berthomier"]
-  s.date        = %q{2011-11-09}
-  s.description = %q{A Ruby Webfinger client}
-  s.email       = %q{oz@cyprio.net}
+  s.authors = ["Michael Bleigh", "Arnaud Berthomier"]
+  s.date = "2011-11-10"
+  s.description = "A Ruby Webfinger client"
+  s.email = "oz@cyprio.net"
   s.extra_rdoc_files = [
     "LICENSE",
-    "README.rdoc"
+    "README.md"
   ]
   s.files = [
     ".rspec",
     "LICENSE",
-    "README.rdoc",
+    "README.md",
     "Rakefile",
     "VERSION",
+    "em-redfinger.gemspec",
     "lib/em-redfinger.rb",
     "lib/em-redfinger/client.rb",
     "lib/em-redfinger/finger.rb",
     "lib/em-redfinger/link.rb",
     "lib/em-redfinger/link_helpers.rb",
-    "em-redfinger.gemspec",
-    "spec/em-redfinger/client_spec.rb",
-    "spec/em-redfinger_spec.rb",
+    "redfinger.gemspec",
+    "spec/redfinger/client_spec.rb",
+    "spec/redfinger_spec.rb",
     "spec/spec.opts",
     "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/oz/em-redfinger}
+  s.homepage = "http://github.com/oz/em-redfinger"
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.5.0}
-  s.summary = %q{A Ruby Webfinger client.}
-  s.test_files = [
-    "spec/em-redfinger/client_spec.rb",
-    "spec/em-redfinger_spec.rb",
-    "spec/spec_helper.rb"
-  ]
+  s.rubygems_version = "1.8.10"
+  s.summary = "A Ruby WebFinger client."
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<eventmachine>, [">= 1.0.0"])
+      s.add_runtime_dependency(%q<em-http-request>, [">= 1.0.0"])
       s.add_runtime_dependency(%q<em-http-request>, [">= 1.0.0"])
       s.add_runtime_dependency(%q<nokogiri>, [">= 1.4.0"])
       s.add_runtime_dependency(%q<hashie>, [">= 0"])
-      s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
-      s.add_development_dependency(%q<webmock>, [">= 0"])
     else
-      s.add_runtime_dependency(%q<eventmachine>, [">= 1.0.0"])
-      s.add_runtime_dependency(%q<em-http-request>, [">= 1.0.0"])
+      s.add_dependency(%q<em-http-request>, [">= 1.0.0"])
+      s.add_dependency(%q<em-http-request>, [">= 1.0.0"])
       s.add_dependency(%q<nokogiri>, [">= 1.4.0"])
       s.add_dependency(%q<hashie>, [">= 0"])
-      s.add_dependency(%q<rspec>, [">= 1.2.9"])
-      s.add_dependency(%q<webmock>, [">= 0"])
     end
   else
-    s.add_runtime_dependency(%q<eventmachine>, [">= 1.0.0"])
-    s.add_runtime_dependency(%q<em-http-request>, [">= 1.0.0"])
+    s.add_dependency(%q<em-http-request>, [">= 1.0.0"])
+    s.add_dependency(%q<em-http-request>, [">= 1.0.0"])
     s.add_dependency(%q<nokogiri>, [">= 1.4.0"])
     s.add_dependency(%q<hashie>, [">= 0"])
-    s.add_dependency(%q<rspec>, [">= 1.2.9"])
-    s.add_dependency(%q<webmock>, [">= 0"])
   end
 end
 
